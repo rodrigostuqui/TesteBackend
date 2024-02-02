@@ -329,18 +329,6 @@ Instale o projeto com:
   python manage.py runserver    
 ```
  
-## Variáveis de Ambiente
-
-Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
-
-`db_user` 
-`db_name`
-`db_host`
-`db_pass`
-`db_port`
-
-Todos esses itens serão enviados junto com o teste
-
 ## Entregáveis:
 
 - Compartilhe o repositório com os usuários felipeKosloski e lucasrbzrra no github
