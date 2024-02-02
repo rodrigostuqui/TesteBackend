@@ -339,3 +339,12 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 Todos esses itens serão enviados junto com o teste
 
+## Entregáveis:
+
+- Compartilhe o repositório com os usuários felipeKosloski e lucasrbzrra no github
+- Collections do postman para recriarmos as chamadas
+
+## Sinta-se a vontade para sugerir melhorias ou tirar dúvidas
+
+- https://www.linkedin.com/in/felipekosloski/
+- https://www.linkedin.com/in/lucas-ribeiro-4179011b6/
