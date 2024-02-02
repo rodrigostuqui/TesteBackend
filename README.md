@@ -324,7 +324,9 @@ Instale o projeto com:
 Instale o projeto com:
 
 ```bash
-  python manage.py runserver
+  python manage.py migrate    
+  python manage.py populate
+  python manage.py runserver    
 ```
  
 ## Variáveis de Ambiente
