@@ -14,7 +14,7 @@ Seu papel será implementar endpoints para dois dos problemas que resolvemos den
 
 Headcount, em uma empresa, refere-se ao número total de funcionários em um determinado período de tempo. Representa a contagem total de pessoas empregadas pela organização, independentemente de serem trabalhadores em tempo integral, parcial, temporário ou contratados por projeto. O headcount é uma métrica essencial para o dimensionamento da força de trabalho e é frequentemente utilizado por líderes e departamentos de recursos humanos para entender a dimensão da equipe.
 
-#### Cálculo:    
+### Cálculo:    
     contagem de ativos no período selecionado
     contagem de id_matricula onde fg_status = 1 dentro do periodo dt_mes_referencia selecionado
 
