@@ -305,7 +305,14 @@ Instale o projeto com:
   cd setup
   pip install -r requirements.txt
 ```
-    
+## Rodando o projeto
+
+Instale o projeto com:
+
+```bash
+  python manage.py runserver
+```
+ 
 ## Variáveis de Ambiente
 
 Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
