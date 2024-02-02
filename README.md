@@ -97,6 +97,7 @@ Turnover, por outro lado, é uma métrica que expressa a taxa de rotatividade de
 Os itens que serão sobrescritos serão:
 - response['xAxis']['data']
 - response['series']['series']
+   
 Os demais itens devem ficar iguais
 
 | Parâmetro   | Tipo       | Descrição                           |
@@ -151,7 +152,7 @@ Os demais itens devem ficar iguais
 Os itens que serão sobrescritos serão:
 - response['YAxis']['data']
 - response['series']['series']
-Os demais itens devem ficar iguais
+Os demais itens devem ficar iguais   
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
@@ -232,7 +233,7 @@ Os demais itens devem ficar iguais
 Os itens que serão sobrescritos serão:
 - response['xAxis']['data']
 - response['series']['series']
-Os demais itens devem ficar iguais
+Os demais itens devem ficar iguais   
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
@@ -287,7 +288,8 @@ Os demais itens devem ficar iguais
 Os itens que serão sobrescritos serão:
 - response['YAxis']['data']
 - response['series']['series']
-Os demais itens devem ficar iguais
+Os demais itens devem ficar iguais   
+
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
 | `init_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
