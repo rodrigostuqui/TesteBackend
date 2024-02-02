@@ -10,28 +10,28 @@ Como uma startup de people analytics nosso produto é voltado para expor os dado
 
 Seu papel será implementar endpoints para dois dos problemas que resolvemos dentro da nossa plataforma
 
-### Headcount:
+## Headcount:
 
 Headcount, em uma empresa, refere-se ao número total de funcionários em um determinado período de tempo. Representa a contagem total de pessoas empregadas pela organização, independentemente de serem trabalhadores em tempo integral, parcial, temporário ou contratados por projeto. O headcount é uma métrica essencial para o dimensionamento da força de trabalho e é frequentemente utilizado por líderes e departamentos de recursos humanos para entender a dimensão da equipe.
 
+
+### Endpoints propostos para Headcount
+
+### Retorna o gráfico de linhas
+
 ### Cálculo:    
-    contagem de ativos no período selecionado
-    contagem de id_matricula onde fg_status = 1 dentro do periodo dt_mes_referencia selecionado
-
-### Turnover:
-    soma de demitidos no perído / média de ativos do período
-    (soma de fg_demitido_no_mes) / ((contagem de id_matricula onde fg_status = 1) / (quantidade de meses do período selecionado))
-Turnover, por outro lado, é uma métrica que expressa a taxa de rotatividade de funcionários em uma empresa durante um determinado período. Também é conhecido como taxa de attrition ou rotatividade de pessoal. O turnover é calculado dividindo o número de funcionários que deixaram a empresa durante um período específico pelo número médio total de funcionários durante o mesmo período, multiplicado por 100 para obter a porcentagem.
-
-
-## Endpoints propostos para Headcount
-
-#### Retorna o gráfico de linhas
-
+    contagem de ativos no período
+    contagem de id_matricula onde fg_status = 1 dentro do periodo init_date e end_date
+### url:    
 ```http
   GET /headcount/line_chart/
 ```
-#### Resposta esperada
+### Parâmetros
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `init_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
+| `end_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
+### Resposta esperada
 ```http
   {
     "xAxis": {
@@ -100,16 +100,23 @@ Os itens que serão sobrescritos serão:
    
 Os demais itens devem ficar iguais
 
+### Retorna o gráfico categórico
+
+### Cálculo:    
+    contagem de ativos no último mês selecionado
+    contagem de id_matricula onde fg_status = 1 dentro do mês passado por end_date
+### url:    
+```http
+  GET /headcount/category_charts/
+```
+### Parâmetros
+
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
 | `init_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
 | `end_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
-
-#### Retorna o gráfico categórico
-
-```http
-  GET /headcount/category_charts/
-```
+| `category` | `string` | **Obrigatório**. Qualquer campos de category da base |
+### Resposta esperada
 ```http
 {
     "xAxis": {
@@ -154,20 +161,30 @@ Os itens que serão sobrescritos serão:
 - response['series']['series']
 Os demais itens devem ficar iguais   
 
+
+## Turnover:
+
+Turnover, por outro lado, é uma métrica que expressa a taxa de rotatividade de funcionários em uma empresa durante um determinado período. Também é conhecido como taxa de attrition ou rotatividade de pessoal. O turnover é calculado dividindo o número de funcionários que deixaram a empresa durante um período específico pelo número médio total de funcionários durante o mesmo período, multiplicado por 100 para obter a porcentagem.
+
+### Endpoints propostos para Turnvoer
+
+### Retorna o gráfico de linhas
+
+### Cálculo
+    soma de demitidos no perído / média de ativos do período
+    (soma de fg_demitido_no_mes) / ((contagem de id_matricula onde fg_status = 1) / (quantidade de meses do período selecionado))    
+    período é a quantidade de meses entre init_date e end_date
+### url
+```http
+  GET /turnover/line_chart/
+```
+### Parâmetros
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
 | `init_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
 | `end_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
-| `category` | `string` | **Obrigatório**. Qualquer campos de category da base |
 
-## Endpoints propostos para Turnvoer
-
-#### Retorna o gráfico de linhas
-
-```http
-  GET /turnover/line_chart/
-```
-#### Resposta esperada
+### Resposta esperada
 ```http
   {
     "xAxis": {
@@ -232,20 +249,24 @@ Os demais itens devem ficar iguais
 ```
 Os itens que serão sobrescritos serão:
 - response['xAxis']['data']
-- response['series']['series']
+- response['series']['series']    
+
 Os demais itens devem ficar iguais   
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `init_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
-| `end_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
-
-#### Retorna o gráfico categórico
+### Retorna o gráfico categórico
 
 ```http
   GET /turnover/category_charts/
 ```
-#### Resposta esperada
+
+### Parâmetros
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `init_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
+| `end_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
+| `category` | `string` | **Obrigatório**. Qualquer campos de category da base |
+
+### Resposta esperada
 ```http
 {
     "xAxis": {
@@ -289,13 +310,6 @@ Os itens que serão sobrescritos serão:
 - response['YAxis']['data']
 - response['series']['series']
 Os demais itens devem ficar iguais   
-
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `init_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
-| `end_date` | `string` | **Obrigatório**. Campo do formato yyyy-MM-dd |
-| `category` | `string` | **Obrigatório**. Qualquer campos de category da base |
-
 
 ## Instalação
 
