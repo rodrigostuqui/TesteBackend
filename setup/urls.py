@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from headcount.views import headcount_linechart, headcount_categorychart
+from turnover.views import turnover_categorychart, turnover_linechart
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('headcount/line_chart/', headcount_linechart, name='headcount_linechart'),
+    path('headcount/category_chart/', headcount_categorychart, name='headcount_categorychart'),
+    path('turnover/line_chart/', turnover_linechart, name='turnover_categorychart'),
+    path('turnover/category_chart/', turnover_categorychart, name='turnover_categorychart'),
 ]
