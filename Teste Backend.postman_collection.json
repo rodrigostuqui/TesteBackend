@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "ca32c713-b098-4a2e-af21-27088f4a6241",
+		"name": "Teste Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27304168"
+	},
+	"item": [
+		{
+			"name": "Headcount Linechart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"xAxis.data is an array with 12 elements\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.xAxis.data).to.be.an('array');",
+							"    pm.expect(jsonData.xAxis.data).to.have.lengthOf(12);",
+							"});",
+							"",
+							"// Check if series.series is an array",
+							"pm.test(\"series.series is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.series.series).to.be.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/headcount/line_chart/?init_date=2022-01-01&end_date=2022-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"headcount",
+						"line_chart",
+						""
+					],
+					"query": [
+						{
+							"key": "init_date",
+							"value": "2022-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Headcount Catogorychart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"xAxis.data is an array with 12 elements\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.yAxis.data).to.be.an('array');",
+							"    pm.expect(jsonData.yAxis.data).to.have.lengthOf(12);",
+							"});",
+							"",
+							"// Check if series.series is an array",
+							"pm.test(\"series.series is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.series.series).to.be.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/headcount/category_chart/?init_date=2022-01-01&end_date=2022-12-31&category=RH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"headcount",
+						"category_chart",
+						""
+					],
+					"query": [
+						{
+							"key": "init_date",
+							"value": "2022-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-12-31"
+						},
+						{
+							"key": "category",
+							"value": "RH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turnover Linechart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"xAxis.data is an array with 12 elements\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.xAxis.data).to.be.an('array');",
+							"    pm.expect(jsonData.xAxis.data).to.have.lengthOf(12);",
+							"});",
+							"",
+							"// Check if series.series is an array",
+							"pm.test(\"series.series is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.series.series).to.be.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/turnover/line_chart/?init_date=2022-01-01&end_date=2022-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"turnover",
+						"line_chart",
+						""
+					],
+					"query": [
+						{
+							"key": "init_date",
+							"value": "2022-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turnover Categorychart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"yAxis.data is an array with 13 elements\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.yAxis.data).to.be.an('array');",
+							"    pm.expect(jsonData.yAxis.data).to.have.lengthOf(13);",
+							"});",
+							"",
+							"// Check if series.series is an array",
+							"pm.test(\"series.series is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.series.series).to.be.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/turnover/category_chart/?init_date=2022-01-01&end_date=2022-12-31&category=RH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"turnover",
+						"category_chart",
+						""
+					],
+					"query": [
+						{
+							"key": "init_date",
+							"value": "2022-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-12-31"
+						},
+						{
+							"key": "category",
+							"value": "RH"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
